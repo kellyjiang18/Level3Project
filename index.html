@@ -4,15 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        var playerRed=12;
-        var playerBlack=12;
-        var compRed=12;
-        var compBlack=12;
+    <script>   
+        function initialize()
+        {
+            var playerRed=12;
+            document.getElementById("pRed").innerHTML=playerRed;
+            var playerBlack=12;
+            document.getElementById("pBlack").innerHTML=playerBlack;
+            var compRed=12;
+            document.getElementById("cRed").innerHTML=compRed;
+            var compBlack=12;
+            document.getElementById("cBlack").innerHTML=compBlack;
+            console.log("Game initialized");
+
+        }
+        function pRollDice()
+        {
+            var red=parseInt(Math.random()*6+1);
+            var black=parseInt(Math.random()*6+1);
+            document.getElementById("pRRoll").innerHTML=red;
+            document.getElementById("pBRoll").innerHTML=black;
+            console.log("Player rolled dice");
+        }
+        function cRollDice()
+        {
+            var red=parseInt(Math.random()*6+1);
+            var black=parseInt(Math.random()*6+1);
+            document.getElementById("cRRoll").innerHTML=red;
+            document.getElementById("cBRoll").innerHTML=black;
+            console.log("Computer rolled dice");
+        }
+        function addRremoveB()
+        {
+            var red = 
+        }
+        function addBremoveR()
+        {
+
+        }
+        function removeRaddB()
+        {
+            
+        }
+        function removeBaddR()
+        {
+
+        }
     </script>
     <title>Document</title>
 </head>
-<body>
-    
+<body onload="initialize();">
+    <div id="Player">
+        <table>
+           <tr>
+                <th>Red Roll</th>
+                <th>Black Roll</th>
+            </tr> 
+            <tr>
+                <td id="pRRoll"> </th>
+                <td id="pBRoll"> </th>
+            </tr>
+            <tr>
+                <th>Player's Red Tokens</th>
+                <th>Player's Black Tokens</th>
+            </tr>
+            <tr>
+                <td id="pRed"></td>
+                <td id="pBlack"></td>
+            </tr>
+        </table>
+        <button onclick="pRollDice();">Roll Dice</button>
+        <button onclick="">Add to your red pile and remove from opponent's black pile</button>
+        <button onclick="">Add to your black pile and remove from opponent's red pile</button>
+        <button onclick="">Remove from your red pile and add to opponent's black pile</button>
+        <button onclick="">Remove from your black pile and add to opponent's red pile</button>
+    </div>
+    <div id="Computer">
+        <table>
+            <tr>
+                <th>Red Roll</th>
+                <th>Black Roll</th>
+            </tr>
+            <tr>
+                <td id="cRRoll"> </td>
+                <td id="cBRoll"> </td>
+            </tr>
+             <tr>
+                 <th>Computer's Red Tokens</th>
+                 <th>Computer's Black Tokens</th>
+             </tr>
+             <tr>
+                 <td id="cRed"></td>
+                 <td id="cBlack"></td>
+             </tr>
+         </table>
+        <p id="cRed"></p>
+        <p id="cBlack"></p>
+    </div>
 </body>
 </html>
