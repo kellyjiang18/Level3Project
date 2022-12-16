@@ -42,15 +42,22 @@
         }
         function addBremoveR()
         {
-            
+            document.getElementById("pBlack").innerHTML=parseInt(document.getElementById("pBlack").innerHTML)+parseInt(document.getElementById("pBRoll").innerHTML);
+            document.getElementById("cRed").innerHTML=parseInt(document.getElementById("cRed").innerHTML)-parseInt(document.getElementById("pRRoll").innerHTML);
+            console.log("Player added to their black and removed from computer's red");
         }
         function removeRaddB()
         {
-            
+            document.getElementById("pRed").innerHTML=parseInt(document.getElementById("pRed").innerHTML)-parseInt(document.getElementById("pRRoll").innerHTML);
+            document.getElementById("cBlack").innerHTML=parseInt(document.getElementById("cBlack").innerHTML)+parseInt(documet.getElementById("pBRoll").innerHTML);
+            console.log("Player removed from their red and added to computer's black");
+
         }
         function removeBaddR()
         {
-
+            document.getElementById("pBlack").innerHTML=parseInt(document.getElementById("pBlack").innerHTML)-parseInt(document.getElementById("pBRoll").innerHTMl);
+            document.getElementById("cRed").innerHTML=parseInt(documnet.getElementById("cRed").innerHTML)+parseInt(document.getElementById("pRRoll").innerHTML);
+            console.log("Player removed from their black and added to computer's red");
         }
     </script>
     <title>Document</title>
