@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>   
-    var playerTurn=true;
+    <script>
         function initialize()
         {
             var playerRed=12;
@@ -17,20 +16,19 @@
             var compBlack=12;
             document.getElementById("cBlack").innerHTML=compBlack;
             console.log("Game initialized");
-            while(document.getElementById("pBlack").innerHTML>0||document.getElementById("cBlack").innerHTML)
+        }
+        function checkWin()
+        {
+            if(document.getElementById("pBlack").innerHTML<=0||document.getElementById("cBlack").innerHTML<=0)
             {
-                if(!playerTurn)
-                {
-                    compTurn();
-                }
+                console.log((parseInt(document.getElementById("pRed").innerHTML)>parseInt(document.getElementById("cRed").innerHTML))?"Player won" : "Computer won");
+                document.getElementById("win").innerHTML=(document.getElementById("pRed").innerHTML)>parseInt(document.getElementById("cRed").innerHTML)?"Player won" : "Computer won";
             }
-            console.log((parseInt(document.getElementById("pRed").innerHTML)>parseInt(document.getElementById("cRed").innerHTML))?"Player won" : "Computer won");
-            document.getElementById("win").innerHTML=(document.getElementById("pRed").innerHTML)>parseInt(document.getElementById("cRed").innerHTML)?"Player won" : "Computer won";
         }
         function compTurn()
         {
             cRollDice();
-            var chance=random();
+            var chance=Math.random();
             if(chance>0.75)
             {
                 if(parseInt(document.getElementById("cRed").innerHTML)-parseInt(document.getElementById("cRRoll"))>parseInt(document.getElementById("pRed")))
@@ -40,7 +38,7 @@
             }
             else
             {
-                chance=random();
+                chance=Math.random();
                 if(chance>0.75)
                 {caddBremoveR();}
                 else if(chance>0.5)
@@ -51,8 +49,6 @@
                 {cremoveRaddB();}
             }
         }
-        function turn()
-        {playerTurn=!playerTurn;}
         function pRollDice()
         {
             var red=parseInt(Math.random()*6+1);
@@ -73,59 +69,59 @@
         {
            document.getElementById("pRed").innerHTML=parseInt(document.getElementById("pRed").innerHTML)+parseInt(document.getElementById("pRRoll").innerHTML);
            document.getElementById("cBlack").innerHTML=parseInt(document.getElementById("cBlack").innerHTML)-parseInt(document.getElementById("pBRoll").innerHTML);
-           turn();
            console.log("Player added to their red and removed from computer's black.");
+           compTurn();
         }
         function addBremoveR()
         {
             document.getElementById("pBlack").innerHTML=parseInt(document.getElementById("pBlack").innerHTML)+parseInt(document.getElementById("pBRoll").innerHTML);
             document.getElementById("cRed").innerHTML=parseInt(document.getElementById("cRed").innerHTML)-parseInt(document.getElementById("pRRoll").innerHTML);
-            turn();
             console.log("Player added to their black and removed from computer's red");
+            compTurn();
         }
         function removeRaddB()
         {
             document.getElementById("pRed").innerHTML=parseInt(document.getElementById("pRed").innerHTML)-parseInt(document.getElementById("pRRoll").innerHTML);
             document.getElementById("cBlack").innerHTML=parseInt(document.getElementById("cBlack").innerHTML)+parseInt(document.getElementById("pBRoll").innerHTML);
-            turn();
             console.log("Player removed from their red and added to computer's black");
+            compTurn();
 
         }
         function removeBaddR()
         {
             document.getElementById("pBlack").innerHTML=parseInt(document.getElementById("pBlack").innerHTML)-parseInt(document.getElementById("pBRoll").innerHTML);
             document.getElementById("cRed").innerHTML=parseInt(document.getElementById("cRed").innerHTML)+parseInt(document.getElementById("pRRoll").innerHTML);
-            turn();
             console.log("Player removed from their black and added to computer's red");
+            compTurn();
         }
         function caddRremoveB()
         {
            document.getElementById("cRed").innerHTML=parseInt(document.getElementById("cRed").innerHTML)+parseInt(document.getElementById("cRRoll").innerHTML);
            document.getElementById("pBlack").innerHTML=parseInt(document.getElementById("pBlack").innerHTML)-parseInt(document.getElementById("cBRoll").innerHTML);
-           turn();
            console.log("Computer added to their red and removed from player's black.");
+           checkWin();
         }
         function caddBremoveR()
         {
             document.getElementById("cBlack").innerHTML=parseInt(document.getElementById("cBlack").innerHTML)+parseInt(document.getElementById("cBRoll").innerHTML);
             document.getElementById("pRed").innerHTML=parseInt(document.getElementById("pRed").innerHTML)-parseInt(document.getElementById("cRRoll").innerHTML);
-            turn();
             console.log("Computer added to their black and removed from players's red");
+            checkWin();
         }
         function cremoveRaddB()
         {
             document.getElementById("cRed").innerHTML=parseInt(document.getElementById("cRed").innerHTML)-parseInt(document.getElementById("cRRoll").innerHTML);
             document.getElementById("pBlack").innerHTML=parseInt(document.getElementById("pBlack").innerHTML)+parseInt(document.getElementById("cBRoll").innerHTML);
-            turn();
             console.log("Computer removed from their red and added to player's black");
+            checkWin();
 
         }
         function cremoveBaddR()
         {
             document.getElementById("cBlack").innerHTML=parseInt(document.getElementById("cBlack").innerHTML)-parseInt(document.getElementById("cBRoll").innerHTML);
             document.getElementById("pRed").innerHTML=parseInt(document.getElementById("pRed").innerHTML)+parseInt(document.getElementById("cRRoll").innerHTML);
-            turn();
             console.log("Computer removed from their black and added to player's red");
+            checkWin();
         }
     </script>
     <title>Document</title>
